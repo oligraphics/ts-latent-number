@@ -10,8 +10,8 @@ export declare class LatentNumber {
     private readonly _delayMs;
     private readonly _transitionDurationMs;
     get value(): number;
-    get latentValue(): number;
     set value(value: number);
+    get latentValue(): number;
     constructor(value?: number, options?: {
         delayMs?: number;
         transitionDurationMs?: number;

@@ -16,15 +16,15 @@ class LatentNumber {
     get value() {
         return this._value;
     }
-    get latentValue() {
-        return this._latentValue;
-    }
     set value(value) {
         if (value === this._value) {
             return;
         }
         this._value = value;
         this._startTransition();
+    }
+    get latentValue() {
+        return this._latentValue;
     }
     constructor(value = 0, options) {
         this._value = value;
@@ -65,6 +65,7 @@ class LatentNumber {
         const now = Date.now();
         const deltaMs = now - this._lastUpdate;
         const progress = Math.min(1, this._progress + deltaMs / this._transitionDurationMs);
+        this._progress = progress;
         this._latentValue =
             this._easingFunction(progress) * this._delta + this._previousValue;
         if (progress >= 1) {
