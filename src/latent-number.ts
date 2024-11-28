@@ -1,5 +1,11 @@
 import { easeInOutQuad } from 'js-easing-functions';
 
+export type CreateLatentNumberOptions = {
+  delayMs?: number;
+  transitionDurationMs?: number;
+  easingFunction?: (x: number) => number;
+};
+
 export class LatentNumber {
   private _value: number;
   private _latentValue: number;
@@ -30,14 +36,7 @@ export class LatentNumber {
     return this._latentValue;
   }
 
-  constructor(
-    value = 0,
-    options?: {
-      delayMs?: number;
-      transitionDurationMs?: number;
-      easingFunction?: (x: number) => number;
-    },
-  ) {
+  constructor(value = 0, options?: CreateLatentNumberOptions) {
     this._value = value;
     this._latentValue = value;
 

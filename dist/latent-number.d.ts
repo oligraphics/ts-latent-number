@@ -1,3 +1,8 @@
+export type CreateLatentNumberOptions = {
+    delayMs?: number;
+    transitionDurationMs?: number;
+    easingFunction?: (x: number) => number;
+};
 export declare class LatentNumber {
     private _value;
     private _latentValue;
@@ -12,11 +17,7 @@ export declare class LatentNumber {
     get value(): number;
     set value(value: number);
     get latentValue(): number;
-    constructor(value?: number, options?: {
-        delayMs?: number;
-        transitionDurationMs?: number;
-        easingFunction?: (x: number) => number;
-    });
+    constructor(value?: number, options?: CreateLatentNumberOptions);
     _startTransition(): void;
     _update(transitionId: number): void;
 }
