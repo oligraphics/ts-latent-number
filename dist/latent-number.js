@@ -51,7 +51,7 @@ class LatentNumber {
                 }
                 this._lastUpdate = Date.now();
                 requestAnimationFrame(() => this._update(transitionId));
-            });
+            }, this._delayMs);
         }
         else {
             this._lastUpdate = Date.now();
